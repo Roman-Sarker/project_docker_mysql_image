@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql_db:
+    image: mysql:8
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employee_db
+    ports:
+      - "3307:3306"
+    networks:
+      - employee_network
+
+  employee_service:
+    build: .
+    container_name: employee_service_container
+    depends_on:
+      - mysql_db
+    ports:
+      - "8080:8080"
+    networks:
+      - employee_network
+
+networks:
+  employee_network:
+    driver: bridge
