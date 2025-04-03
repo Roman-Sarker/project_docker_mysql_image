@@ -67,8 +67,13 @@ You should see:
 | performance_schema |
 | sys              |
 +--------------------+
-```
 
+```sql
+use employee_db;
+```
+```sql
+select * from employees;
+```
 ---
 
 ## **Step 5: Create a Spring Boot Project**
