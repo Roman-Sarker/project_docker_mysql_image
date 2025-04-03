@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/app_mysql_image-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 8087
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

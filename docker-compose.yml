@@ -19,7 +19,7 @@ services:
     depends_on:
       - mysql_db
     ports:
-      - "8080:8080"
+      - "8087:8087"
     networks:
       - employee_network
 
