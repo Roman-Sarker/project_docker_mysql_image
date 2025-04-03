@@ -2,7 +2,13 @@ Here's a **step-by-step guide** to setting up a **Spring Boot application with M
 
 ---
 
-## **Step 1: Pull MySQL Docker Image**
+## **Step 1: Install Docker in Local PC**
+ - Download Docker
+ - Install and Setup Docker Desktop in local
+
+---
+
+## **Step 2: Pull MySQL Docker Image into local docker**
 First, pull the latest **MySQL Docker image** from Docker Hub.
 
 ```bash
@@ -12,7 +18,7 @@ docker pull mysql
 
 ---
 
-## **Step 2: Run MySQL Container in Docker**
+## **Step 3: Run MySQL Container in Docker**
 After pulling the image, run the MySQL container using the following command:
 
 ```bash
@@ -39,7 +45,7 @@ abc123xyz      mysql    0.0.0.0:3307->3306/tcp    Up X mins    mysql_container
 
 ---
 
-## **Step 3: Connect to MySQL in Docker**
+## **Step 4: Connect to MySQL in Docker**
 Now, let's connect to MySQL inside the container.
 
 ```bash
@@ -65,7 +71,7 @@ You should see:
 
 ---
 
-## **Step 4: Create a Spring Boot Project**
+## **Step 5: Create a Spring Boot Project**
 Create a new **Spring Boot** project using **Spring Initializr** (or manually).
 
 ### **Dependencies to Add:**
@@ -76,7 +82,7 @@ Create a new **Spring Boot** project using **Spring Initializr** (or manually).
 
 ---
 
-## **Step 5: Create an Employee Entity**
+## **Step 6: Create an Employee Entity**
 Create a new **`Employee` entity** inside your Spring Boot project.
 
 📌 **File:** `Employee.java`
@@ -102,7 +108,7 @@ public class Employee {
 
 ---
 
-## **Step 6: Create an Employee Repository**
+## **Step 7: Create an Employee Repository**
 📌 **File:** `EmployeeRepository.java`
 ```java
 package com.example.demo.repository;
@@ -116,7 +122,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 ---
 
-## **Step 7: Create an Employee Service**
+## **Step 8: Create an Employee Service**
 📌 **File:** `EmployeeService.java`
 ```java
 package com.example.demo.service;
@@ -148,7 +154,7 @@ public class EmployeeService {
 
 ---
 
-## **Step 8: Create an Employee Controller**
+## **Step 9: Create an Employee Controller**
 📌 **File:** `EmployeeController.java`
 ```java
 package com.example.demo.controller;
@@ -183,7 +189,7 @@ public class EmployeeController {
 
 ---
 
-## **Step 9: Configure `application.properties`**
+## **Step 10: Configure `application.properties`**
 📌 **File:** `src/main/resources/application.properties`
 ```properties
 spring.datasource.url=jdbc:mysql://mysql:3306/employee_db
@@ -196,7 +202,7 @@ spring.jpa.show-sql=true
 
 ---
 
-## **Step 10: Create `docker-compose.yml`**
+## **Step 11: Create `docker-compose.yml`**
 📌 **File:** `docker-compose.yml`
 ```yaml
 version: '3.8'
@@ -236,7 +242,7 @@ networks:
 
 ---
 
-## **Step 11: Build and Run the Containers**
+## **Step 12: Build and Run the Containers**
 Inside your project directory, execute:
 
 ```bash
@@ -249,7 +255,7 @@ This will:
 
 ---
 
-## **Step 12: Verify Containers Are Running**
+## **Step 13: Verify Containers Are Running**
 Run:
 ```bash
 docker ps
@@ -263,7 +269,7 @@ def456xyz      spring-boot-app  0.0.0.0:8080->8080/tcp    spring_boot_app
 
 ---
 
-## **Step 13: Test with Postman**
+## **Step 14: Test with Postman**
 ### **Create Employee (POST Request)**
 - **URL:** `http://localhost:8080/api/employees`
 - **Method:** `POST`
@@ -302,7 +308,7 @@ def456xyz      spring-boot-app  0.0.0.0:8080->8080/tcp    spring_boot_app
 
 ---
 
-## **Step 14: Stop Containers**
+## **Step 15: Stop Containers**
 To stop the running containers:
 ```bash
 docker-compose down
