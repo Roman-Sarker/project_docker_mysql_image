@@ -199,6 +199,7 @@ public class EmployeeController {
 ## **Step 10: Configure `application.properties`**
 📌 **File:** `src/main/resources/application.properties`
 ```properties
+server.port=8087
 spring.datasource.url=jdbc:mysql://mysql:3306/employee_db
 spring.datasource.username=root
 spring.datasource.password=root
@@ -231,7 +232,7 @@ services:
     container_name: spring_boot_app
     restart: always
     ports:
-      - "8080:8080"
+      - "8087:8087"
     depends_on:
       - mysql
     environment:
@@ -271,7 +272,7 @@ Expected Output:
 ```
 CONTAINER ID   IMAGE            PORTS                     NAMES
 abc123xyz      mysql:latest     0.0.0.0:3307->3306/tcp    mysql_container
-def456xyz      spring-boot-app  0.0.0.0:8080->8080/tcp    spring_boot_app
+def456xyz      spring-boot-app  0.0.0.0:8087->8087/tcp    spring_boot_app
 ```
 
 ---
@@ -284,31 +285,31 @@ def456xyz      spring-boot-app  0.0.0.0:8080->8080/tcp    spring_boot_app
 - **Body (JSON):**
 ```json
 {
-  "name": "John Doe",
-  "email": "john@example.com"
+  "name": "Roman Sarker",
+  "email": "roman@example.com"
 }
 ```
 - **Expected Response:**
 ```json
 {
   "id": 1,
-  "name": "John Doe",
-  "email": "john@example.com"
+  "name": "Roman Sarker",
+  "email": "roman@example.com"
 }
 ```
 
 ---
 
 ### **Fetch All Employees (GET Request)**
-- **URL:** `http://localhost:8080/api/employees`
+- **URL:** `http://localhost:8087/api/employees`
 - **Method:** `GET`
 - **Expected Response:**
 ```json
 [
   {
     "id": 1,
-    "name": "John Doe",
-    "email": "john@example.com"
+    "name": "Roman Sarker",
+    "email": "roman@example.com"
   }
 ]
 ```
