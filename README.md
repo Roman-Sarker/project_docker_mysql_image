@@ -279,7 +279,7 @@ def456xyz      spring-boot-app  0.0.0.0:8087->8087/tcp    spring_boot_app
 
 ## **Step 14: Test with Postman**
 ### **Create Employee (POST Request)**
-- **URL:** `http://localhost:8080/api/employees`
+- **URL:** `http://localhost:8080/employees/save`
 - **Method:** `POST`
 - **Headers:** `Content-Type: application/json`
 - **Body (JSON):**
