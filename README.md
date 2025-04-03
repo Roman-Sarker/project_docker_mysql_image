@@ -68,7 +68,7 @@ You should see:
 | sys              |
 +--------------------+
 
-
+```
 ```sql
 use employee_db;
 ```
